@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<link ref='./main.css'></link>
+<h1 id="center%E8%97%8F%E5%A4%B4%E8%AF%97%E7%94%9F%E6%88%90%E5%99%A8"><center>藏头诗生成器</h1>
+<h2 id="%E5%BC%95%E8%A8%80">引言:</h2>
+<p>本项目是一个基于深度学习的藏头诗生成器，本项目使用的模型是gpt2-chinese-poem，本项目使用的数据集是中华古诗词数据库。</p>
+<h2 id="1-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D">1. 项目介绍</h2>
+<p>藏头诗生成器是按照输入的一个词生成诗句，诗句的每个字都是以输入的一个词开头的，最终生成的诗句是以输入的词为主题的一首诗。</p>
+<h2 id="2-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90">2. 需求分析</h2>
+<p>藏头诗生成器需要根据词的每一个字来生成一个诗句，尽量保持诗句的完整性，保证诗句的语法正确，保证诗句的韵律正确，保证诗句的主题正确，保证诗句的结构正确。</p>
+<h2 id="3-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84">3. 项目结构</h2>
+<ul>
+<li>data：存放数据集</li>
+<li>model：存放模型</li>
+<li>res：存放测试结果</li>
+<li>main.py：训练脚本</li>
+<li>inference.py：测试脚本</li>
+</ul>
+<h2 id="4-%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0">4. 设计与实现</h2>
+<h3 id="41-%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E8%8E%B7%E5%8F%96">4.1 数据集的获取</h3>
+<p>本项目使用的数据集是从中华古诗词数据库中获取的，链接为：<a href="https://github.com/chinese-poetry/chinese-poetry">中文诗词库</a></p>
+<h3 id="42-%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86">4.2 数据预处理</h3>
+<ol>
+<li>
+<p>数据预处理的部分主要是对数据集进行分词。首先，我会打开所有的数据集，将数据集保存到panda表中，数据集的基本格式如下：</p>
+<p><code>{      &quot;author&quot;: &quot;晏殊&quot;,      &quot;paragraphs&quot;: [      &quot;一霎秋风惊画扇。&quot;,       &quot;艳粉娇红，尚拆荷花面。&quot;,       &quot;草际露垂虫响遍。&quot;,       &quot;珠帘不下留归燕。&quot;,       &quot;扫掠亭台开小院。&quot;,       &quot;四坐清欢，莫放金杯浅。&quot;,       &quot;龟鹤命长松寿远。&quot;,       &quot;阳春一曲情千万。&quot;      ],       &quot;rhythmic&quot;: &quot;蝶恋花&quot;  }</code></p>
+</li>
+<li>
+<p>在自然语言处理中，[CLS]指的是分类标签，[SEP]指的是句子分隔符，[MASK]指的是需要预测的词，[PAD]指的是padding的标签。这四个标签是BERT中的标签，BERT是Google在2018年提出的一种基于Transformer的模型，其主要是用于自然语言处理。</p>
+<p>在BERT模型中，输入的句子是经过分词后的句子，然后将输入的句子通过词嵌入层，得到每个词的词向量，然后将得到的词向量输入到Transformer Encoder中，得到Transformer Encoder的输出，然后将Transformer Encoder的输出输入到输出层，得到最终的输出。</p>
+<p>本项目使用的模型是BERT模型，所以在数据预处理的过程中，我会将将一首诗随机一到四句诗句的头一个字替换成[CLS]，, 把这几个字集中起来保存到一个字符串，如：</p>
+<p><code>&quot;[CLS]霎秋风惊画扇。&quot; -&gt; &quot;[CLS]粉娇红，尚拆荷花面。&quot; -&gt; &quot;[CLS]际露垂虫响遍。&quot; -&gt; &quot;[CLS]帘不下留归燕。&quot;  《一艳草珠》</code></p>
+</li>
+<li>
+<p>通过jieba工具，将所有的标点符号去掉，将一句完整的诗句分成若干不同的词语，如：</p>
+<p><code>&quot;[CLS]霎秋风惊画扇。&quot; -&gt; &quot;霎秋风惊画扇&quot; -&gt; [&quot;霎&quot;, &quot;秋风&quot;, &quot;惊&quot;, &quot;画&quot;, &quot;扇&quot;]</code></p>
+</li>
+<li>
+<p>将词语形成的列表随机排列，作为初始训练数据，如：</p>
+<p><code>[&quot;霎&quot;, &quot;秋风&quot;, &quot;惊&quot;, &quot;画&quot;, &quot;扇&quot;] -&gt; [&quot;秋风&quot;, &quot;惊&quot;, &quot;霎&quot;, &quot;画&quot;, &quot;扇&quot;]</code></p>
+</li>
+<li>
+<p>将对一首诗的拆分过程定义成一个类，即定义这样一个类PoetDataset，可以根据index获取经过处理的诗句，并在这个类定义成员函数collate_fn，用于将一个batch的数据处理成模型可以接受的形式。以及dataloader，用于将数据集分成一个一个的batch。</p>
+</li>
+</ol>
+<h3 id="43-%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%BE%E8%AE%A1">4.3 模型的设计</h3>
+<p>本项目使用的模型是预训练模型gpt2-chinese-poem，gpt2是OpenAI在2019年提出的一种预训练模型，其主要是用于自然语言处理，gpt2-chinese-poem是gpt2的专门用来生成中国古诗词的模型。</p>
+<p>gpt2的输入是分词后的句子，经过词嵌入层后，得到每个词的词向量，然后将词向量输入到Transformer Decoder中，得到Transformer Decoder的输出，然后将Transformer Decoder的输出经过全连接层，得到最终的输出。</p>
+<p>gpt2-chinese-poem的输入是分词后的句子，经过词嵌入层后，得到每个词的词向量，然后将词向量输入到Transformer Decoder中，得到Transformer Decoder的输出，然后将Transformer Decoder的输出经过全连接层，得到最终的输出。</p>
+<h3 id="44-%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%AD%E7%BB%83">4.4 模型的训练</h3>
+<p>模型的训练分成两个模块，一个是数据模块，一个是训练模块。</p>
+<p>数据模块的作用是将数据集（前面数据预处理定义的PoetDataset）分成一个一个的batch，然后将一个batch的数据输入到模型中。</p>
+<p>训练模块的作用是对模型进行训练，将训练好的模型保存下来。</p>
+<h3 id="45-%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%B5%8B%E8%AF%95">4.5 模型的测试</h3>
+<p>模型的测试部分主要是对训练好的模型进行测试，得到最终的结果。</p>
+<p>要使用这个模型，我在inference.py中先加载预训练好的模型，并定义了生成藏头诗的函数inference，其中，函数参数title作为藏头诗要藏起来的头，keywords作为关键字，可以让藏头诗以期望的意境预测</p>
+<h2 id="5-%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C">5. 实验结果</h2>
+<h3 id="51-%E8%AE%AD%E7%BB%83%E6%88%AA%E5%9B%BE">5.1 训练截图</h3>
+<p><img src="./res/1.png" alt=""></p>
+<h3 id="52-%E6%B5%8B%E8%AF%95%E6%88%AA%E5%9B%BE">5.2 测试截图</h3>
+<p><img src="./res/2.png" alt=""></p>
+<h2 id="6-%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%A8%E8%AE%BA">6. 总结与讨论</h2>
+<ol>
+<li>
+<p>通过这个实验，我了解到基本的深度学习的步骤，即数据预处理，模型设计，模型训练，模型测试。在数据预处理的过程中，一份合适的原始数据集是很重要的，我们需要把数据集修改成适合模型训练的数据集的形式，以更好地训练。在模型设计的过程中，我了解到了gpt2模型的基本原理，以及gpt2模型的输入，我接触到适合生成古诗词的预训练模型，认识到要根据需求选择合适的模型。在模型训练的过程中，我了解到了模型训练的基本步骤，即将数据分成一个一个的batch，然后将一个batch的数据输入到模型中。在模型测试的过程中，我了解到了如何使用训练好的模型，即加载模型，然后输入到模型中，得到最终的结果。</p>
+</li>
+<li>
+<p>遇到的bug</p>
+<p><code>CUDA out of memory</code></p>
+<p>我通过修改batchsize解决了</p>
+</li>
+</ol>
+
+</body>
+</html>
